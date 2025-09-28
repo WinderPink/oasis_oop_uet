@@ -12,14 +12,14 @@ public class Account {
     /**
      * Danh sách các giao dịch đã thực hiện.
      */
-    private ArrayList<Transaction> transactionList;
+    private ArrayList<Transaction> transitionList;
 
     /**
      * Khởi tạo tài khoản mới với số dư = 0.
      */
     public Account() {
         this.balance = 0;
-        this.transactionList = new ArrayList<>();
+        this.transitionList = new ArrayList<>();
     }
 
     /**
@@ -32,7 +32,7 @@ public class Account {
             System.out.println("So tien ban nap vao khong hop le!");
         } else {
             balance += amount;
-            transactionList.add(new Transaction(Transaction.DEPOSIT, amount, balance));
+            transitionList.add(new Transaction(Transaction.DEPOSIT, amount, balance));
         }
     }
 
@@ -48,7 +48,7 @@ public class Account {
             System.out.println("So tien ban rut vuot qua so du!");
         } else {
             balance -= amount;
-            transactionList.add(new Transaction(Transaction.WITHDRAW, amount, balance));
+            transitionList.add(new Transaction(Transaction.WITHDRAW, amount, balance));
         }
     }
 
@@ -73,7 +73,7 @@ public class Account {
      */
     public void printTransaction() {
         int idx = 1;
-        for (Transaction t : transactionList) {
+        for (Transaction t : transitionList) {
             String op = t.getOperation().equals(Transaction.DEPOSIT) ? "Nap tien" : "Rut tien";
             System.out.printf("Giao dich %d: %s $%.2f. So du luc nay: $%.2f.%n",
                     idx, op, t.getAmount(), t.getBalance());
